@@ -1,0 +1,55 @@
+<template>
+    <div style="width: 400px; margin: auto;">
+        <lightning-card title="Requirment 1">
+            <div class="slds-p-around_medium" style="width: 200px;">
+                <lightning-input style="width: 350px;" label="Enter Cat Name" value={catName}
+                    onchange={handleInputChange}></lightning-input>
+                <lightning-button label="Search Cat" onclick={searchCat} class="slds-m-top_medium"></lightning-button>
+
+                <template if:true={catData}>
+                    <div class="slds-m-top_medium">
+                        <p><strong>Name:</strong> {name}</p>
+                        <p><strong>Origin:</strong> {origin}</p>
+                        <p><strong>Family Friendliness Score:</strong> {family_friendly_Score}</p>
+                        <img src={imageURL} alt="My Image" style="max-width: 100%; height: auto;" />
+                    </div>
+                </template>
+
+
+            </div>
+
+
+
+
+        </lightning-card>
+
+
+        <lightning-card title="Requirment 2">
+            <div class="slds-p-around_medium">
+                <lightning-combobox style="width: 350px;" name="options" label="Choose a friendly cat Number "
+                    value={selectedValue} placeholder="Select an option" options={options} onchange={handleChange}>
+                </lightning-combobox>
+
+                <lightning-button label="Friendly Cat List" onclick={searchFriendlyCat} class="slds-m-top_medium">
+                </lightning-button>
+
+            </div>
+
+            <template if:true={catList}>
+                <div class="slds-p-around_medium">
+                    <template for:each={catList} for:item="cat">
+
+                        <div key={cat.name} class="cat-card">
+                            <img src={cat.image_link} alt={cat.name} width="200" />
+                            <h3><strong>Cat Breed Name:</strong> {cat.name}</h3>
+                            <p><strong>Origin:</strong> {cat.origin}</p>
+                            <p><strong>Length:</strong> {cat.length}</p>
+                            <p><strong>Family Friendly:</strong> {cat.family_friendly}</p>
+                            <p><strong>Shedding:</strong> {cat.shedding}</p>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </lightning-card>
+    </div>
+</template>
