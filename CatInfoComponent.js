@@ -125,7 +125,7 @@ export default class CatInfoComponent extends LightningElement {
         fetch(endpoint, {
             method: 'GET',
             headers: {
-                'X-Api-Key': 'aiYhBk7sZfR4yFyhR2YcWA==LlhmthJq0K6M7ixT' // optional custom header
+                'X-Api-Key': '' // optional custom header
             }
         }).then(response => {
             console.log(response);
